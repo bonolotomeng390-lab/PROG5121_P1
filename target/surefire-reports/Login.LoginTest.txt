@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: Login.LoginTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 1.675 s <<< FAILURE! -- in Login.LoginTest
+Login.LoginTest.testRegisterUser_Success -- Time elapsed: 0.067 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <Username successfully captured.
+Password successfully captured.
+Cell phone number successfully added.> but was: <Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at Login.LoginTest.testRegisterUser_Success(LoginTest.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+
+Login.LoginTest.testRegisterUser_InvalidCellNumber -- Time elapsed: 0.026 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Cell phone number incorrectly formatted or does not contain international code.> but was: <Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at Login.LoginTest.testRegisterUser_InvalidCellNumber(LoginTest.java:134)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+
+Login.LoginTest.testRegisterUser_InvalidPassword -- Time elapsed: 0.032 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.> but was: <Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at Login.LoginTest.testRegisterUser_InvalidPassword(LoginTest.java:124)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+
