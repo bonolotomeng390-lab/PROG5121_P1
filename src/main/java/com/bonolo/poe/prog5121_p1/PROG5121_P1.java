@@ -44,6 +44,9 @@ public class PROG5121_P1 {
 
             boolean isLoggedIn = login.loginUser(loginUsername, loginPassword);
             System.out.println(login.returnLoginStatus(isLoggedIn));
+            if (isLoggedIn) {
+    QuickChat.start(scanner);
+}
         }
         scanner.close();
     }
