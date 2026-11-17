@@ -49,3 +49,34 @@ Run `LoginTest.java` using JUnit 5 (via NetBeans' built-in test runner, or `mvn 
 | Username | `kyl_1` |
 | Password | `Ch3ck!234` |
 | Cell number | `+27838968976` |
+
+## Part 2: QuickChat Messaging
+
+After a successful login the program starts QuickChat, a console menu for sending messages. Messaging is only available once the user has logged in.
+
+### What was added
+- **`Message` class**: holds the rules for a message and the methods that work with it
+- **`QuickChat` class**: shows the menu and collects the messages
+- **`MessageTest`**: 13 JUnit 5 tests using the test data from the brief
+- **GitHub Actions workflow** (`.github/workflows/maven.yml`): runs the tests automatically on every push
+
+### How it works
+1. QuickChat shows "Welcome to QuickChat." and asks how many messages the user wants to enter. No more than that number can be entered.
+2. The user picks from the menu: 1) Send Messages, 2) Show recently sent messages (shows "Coming Soon."), 3) Quit.
+3. Each message has:
+   - a randomly generated ten-digit **Message ID**
+   - a **message number** that starts at 0
+   - a **recipient** cell number with an international code and no more than ten digits after it
+   - **message text** of 250 characters or fewer
+   - a **message hash**: first two digits of the ID, the message number, then the first and last words in capitals (for example `00:0:HITONIGHT`)
+4. For each message the user chooses to send it, disregard it (press 0 to delete) or store it to send later. Stored messages are written to a JSON file.
+5. After a message is sent its details are shown (ID, hash, recipient, message), and the total number of messages sent is shown at the end.
+
+### Methods in `Message`
+`generateMessageId`, `checkMessageID`, `checkRecipientCell`, `checkMessageLength`, `createMessageHash`, `sentMessage`, `printMessages`, `returnTotalMessages`, `storeMessage`
+
+### Testing
+`MessageTest` covers the message length, recipient number, hash, ID and send/disregard/store options, plus the totals. With `LoginTest` that makes 33 tests, all passing. Run them with `mvn test` or **Test** in NetBeans.
+
+### Git workflow
+Part 2 was built on a `MessageFeature` branch in several small commits, so `master` stayed stable.
