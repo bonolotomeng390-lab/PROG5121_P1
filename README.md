@@ -22,6 +22,7 @@ Stores a user's details (first name, last name, username, password, cell number)
 - `registerUser()` — runs all three checks and returns a message describing the result
 - `loginUser(username, password)` — checks supplied credentials against the stored ones
 - `returnLoginStatus(isLoggedIn)` — returns a personalized welcome or error message
+  
 
 ### `PROG5121_P1.java`
 Contains `main`. Prompts the user for registration details, creates a `Login` object, and prints the registration result. If registration succeeds, it then prompts for login credentials and prints the login outcome.
@@ -80,3 +81,19 @@ After a successful login the program starts QuickChat, a console menu for sendin
 
 ### Git workflow
 Part 2 was built on a `MessageFeature` branch in several small commits, so `master` stayed stable.
+## Part 3: Stored Messages and Reports
+
+### What was added
+- **Message arrays**: sent messages, disregarded messages, stored messages, message hashes and message IDs. They are filled while the program runs, with nothing hard-coded.
+- **Stored messages from JSON**: when QuickChat starts, the stored messages are read back from `storedMessages.json`, so they are still there on the next run.
+- **Fourth main menu option, "Stored Messages"**, with six features:
+  1. Display the sender and recipient of all stored messages
+  2. Display the longest stored message
+  3. Search for a message ID and show its recipient and message
+  4. Search for all messages sent or stored for a particular recipient
+  5. Delete a stored message using its message hash
+  6. Display a report with the full details of all stored messages
+- **Show recently sent messages** (menu option 2) now shows a report of the sent messages: hash, recipient and message.
+
+### Testing
+`MessageArrayTest` adds 17 JUnit tests using the test data from the brief. They cover the arrays, the longest message, the ID search, the recipient search, deleting by hash, the reports and reading the JSON file back. With `LoginTest` (20) and `MessageTest` (13) there are 50 tests, and they all run automatically on GitHub through GitHub Actions.
