@@ -6,6 +6,8 @@ import com.bonolo.poe.prog5121_p1.Message;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import java.nio.file.Path;
 
 public class MessageTest {
 
@@ -13,8 +15,9 @@ public class MessageTest {
     private Message message2; // Test data: message 2 (discard)
 
     @BeforeEach
-    public void setUp() {
+    public void setUp(@TempDir Path tempDir) {
         Message.resetState();
+        Message.setJsonFile(tempDir.resolve("storedMessages.json").toString());
         // Fixed IDs starting with "00" so the hash is predictable
         message1 = new Message("0012345678", 0, "+27718693002",
                 "Hi Mike, can you join us for dinner tonight?");

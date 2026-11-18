@@ -4,11 +4,8 @@
 
 package com.bonolo.poe.prog5121_p1;
 
-/**
- *
- * @author bonol
- */
 import java.util.Scanner;
+
 public class PROG5121_P1 {
 
     public static void main(String[] args) {
@@ -17,16 +14,16 @@ public class PROG5121_P1 {
         System.out.println("--- REGISTRATION ---");
         System.out.print("Enter First Name: ");
         String firstName = scanner.nextLine();
-        
+
         System.out.print("Enter Last Name: ");
         String lastName = scanner.nextLine();
-        
+
         System.out.print("Enter Username (must contain _ and <=5 chars): ");
         String username = scanner.nextLine();
-        
+
         System.out.print("Enter Password (8+ chars, capital, number, special): ");
         String password = scanner.nextLine();
-        
+
         System.out.print("Enter SA Cell Number (e.g. +27838968976): ");
         String cellNumber = scanner.nextLine();
 
@@ -34,7 +31,6 @@ public class PROG5121_P1 {
         String registrationMessage = login.registerUser();
         System.out.println(registrationMessage);
 
-        
         if (registrationMessage.contains("successfully")) {
             System.out.println("\n--- LOGIN ---");
             System.out.print("Enter Username: ");
@@ -44,9 +40,11 @@ public class PROG5121_P1 {
 
             boolean isLoggedIn = login.loginUser(loginUsername, loginPassword);
             System.out.println(login.returnLoginStatus(isLoggedIn));
+
+            // Messaging is only available after a successful login
             if (isLoggedIn) {
-    QuickChat.start(scanner);
-}
+                QuickChat.start(scanner, firstName + " " + lastName);
+            }
         }
         scanner.close();
     }
